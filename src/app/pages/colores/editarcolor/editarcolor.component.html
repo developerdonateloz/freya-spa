@@ -1,31 +1,28 @@
-<h4>Edición de G´nero</h4>
-<form [formGroup]="generoForm" class="form-horizontal">
+<h4>Edición de Color</h4>
+<form [formGroup]="colorForm" class="form-horizontal">
   <div class="form-group">
-    <label class="control-label col-sm-3" for="txt-descripcion"
-      >Descripción:</label
-    >
+    <label class="control-label col-sm-3" for="txt-nombre">Descripción:</label>
     <input
-      id="txt-descripcion"
+      id="txt-nombre"
       type="text"
       class="form-control"
       [class.is]
-      formControlName="descripcion"
+      formControlName="nombre"
     />
     <div
       *ngIf="
-        generoForm.get('descripcion')?.errors &&
-        generoForm.get('descripcion')?.touched
+        colorForm.get('nombre')?.errors && colorForm.get('nombre')?.touched
       "
     >
       <p
         class="text-danger"
-        *ngIf="generoForm.get('descripcion')?.hasError('required')"
+        *ngIf="colorForm.get('nombre')?.hasError('required')"
       >
         Campo requerido.
       </p>
       <p
         class="text-danger"
-        *ngIf="generoForm.get('descripcion')?.hasError('maxlength')"
+        *ngIf="colorForm.get('nombre')?.hasError('maxlength')"
       >
         Máxima longitud 50 caracteres.
       </p>
@@ -36,7 +33,7 @@
     <button
       type="button"
       class="btn btn-primary"
-      [disabled]="generoForm.invalid"
+      [disabled]="colorForm.invalid"
       (click)="guardar($event)"
     >
       Guardar

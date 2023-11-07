@@ -16,6 +16,18 @@ import { ListausuariosComponent } from './pages/usuarios/listausuarios/listausua
 import { CrearusuarioComponent } from './pages/usuarios/crearusuario/crearusuario.component';
 import { EditarusuarioComponent } from './pages/usuarios/editarusuario/editarusuario.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListacoloresComponent } from './pages/colores/listacolores/listacolores.component';
+import { EditarcolorComponent } from './pages/colores/editarcolor/editarcolor.component';
+import { CrearcolorComponent } from './pages/colores/crearcolor/crearcolor.component';
+import { ListamaterialesComponent } from './pages/materiales/listamateriales/listamateriales.component';
+import { CrearmaterialComponent } from './pages/materiales/crearmaterial/crearmaterial.component';
+import { EditarmaterialComponent } from './pages/materiales/editarmaterial/editarmaterial.component';
+import { ListamediospagoComponent } from './pages/mediospago/listamediospago/listamediospago.component';
+import { CrearmediopagoComponent } from './pages/mediospago/crearmediopago/crearmediopago.component';
+import { EditarmediopagoComponent } from './pages/mediospago/editarmediopago/editarmediopago.component';
+import { ListatamaniosComponent } from './pages/tamanios/listatamanios/listatamanios.component';
+import { CreartamanioComponent } from './pages/tamanios/creartamanio/creartamanio.component';
+import { EditartamanioComponent } from './pages/tamanios/editartamanio/editartamanio.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +43,18 @@ import { HttpClientModule } from '@angular/common/http';
     ListausuariosComponent,
     CrearusuarioComponent,
     EditarusuarioComponent,
+    ListacoloresComponent,
+    EditarcolorComponent,
+    CrearcolorComponent,
+    ListamaterialesComponent,
+    CrearmaterialComponent,
+    EditarmaterialComponent,
+    ListamediospagoComponent,
+    CrearmediopagoComponent,
+    EditarmediopagoComponent,
+    ListatamaniosComponent,
+    CreartamanioComponent,
+    EditartamanioComponent,
   ],
   imports: [
     BrowserModule,

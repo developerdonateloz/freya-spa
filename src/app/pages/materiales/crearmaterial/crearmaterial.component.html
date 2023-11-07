@@ -1,31 +1,28 @@
-<h4>Edición de G´nero</h4>
-<form [formGroup]="generoForm" class="form-horizontal">
+<h4>Nuevo Género</h4>
+<form [formGroup]="materialForm" class="form-horizontal">
   <div class="form-group">
-    <label class="control-label col-sm-3" for="txt-descripcion"
-      >Descripción:</label
-    >
+    <label class="control-label col-sm-3" for="txt-name">Descripción:</label>
     <input
       id="txt-descripcion"
       type="text"
       class="form-control"
-      [class.is]
       formControlName="descripcion"
     />
     <div
       *ngIf="
-        generoForm.get('descripcion')?.errors &&
-        generoForm.get('descripcion')?.touched
+        materialForm.get('descripcion')?.errors &&
+        materialForm.get('descripcion')?.touched
       "
     >
       <p
         class="text-danger"
-        *ngIf="generoForm.get('descripcion')?.hasError('required')"
+        *ngIf="materialForm.get('descripcion')?.hasError('required')"
       >
         Campo requerido.
       </p>
       <p
         class="text-danger"
-        *ngIf="generoForm.get('descripcion')?.hasError('maxlength')"
+        *ngIf="materialForm.get('descripcion')?.hasError('maxlength')"
       >
         Máxima longitud 50 caracteres.
       </p>
@@ -35,13 +32,17 @@
   <div class="form-group">
     <button
       type="button"
+      [disabled]="materialForm.invalid"
       class="btn btn-primary"
-      [disabled]="generoForm.invalid"
       (click)="guardar($event)"
     >
       Guardar
     </button>
-    <button type="button" class="btn btn-secondary" [routerLink]="['/generos']">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      [routerLink]="['/materiales']"
+    >
       Volver
     </button>
   </div>
