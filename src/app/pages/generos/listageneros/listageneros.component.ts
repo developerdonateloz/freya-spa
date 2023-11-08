@@ -23,7 +23,6 @@ export class ListagenerosComponent implements OnInit {
   eliminar(id: number): void {
     if (confirm('¿Estás seguro de eliminar el género seleccionado?')) {
       this.generosService.eliminarGenero(id).subscribe((res) => {
-        console.log(res);
         this.cargarLista();
       });
     }

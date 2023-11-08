@@ -28,6 +28,7 @@ import { EditarmediopagoComponent } from './pages/mediospago/editarmediopago/edi
 import { ListatamaniosComponent } from './pages/tamanios/listatamanios/listatamanios.component';
 import { CreartamanioComponent } from './pages/tamanios/creartamanio/creartamanio.component';
 import { EditartamanioComponent } from './pages/tamanios/editartamanio/editartamanio.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { EditartamanioComponent } from './pages/tamanios/editartamanio/editartam
     ListatamaniosComponent,
     CreartamanioComponent,
     EditartamanioComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

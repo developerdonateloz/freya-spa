@@ -23,7 +23,6 @@ export class ListacoloresComponent implements OnInit {
   eliminar(id: number): void {
     if (confirm('¿Estás seguro de eliminar el color seleccionado?')) {
       this.coloresService.eliminarColor(id).subscribe((res) => {
-        console.log(res);
         this.cargarLista();
       });
     }

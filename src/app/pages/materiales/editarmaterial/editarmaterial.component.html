@@ -1,1 +1,52 @@
-<p>editarmaterial works!</p>
+<h4>Edición de G´nero</h4>
+<form [formGroup]="materialForm" class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="txt-descripcion"
+      >Descripción:</label
+    >
+    <input
+      id="txt-descripcion"
+      type="text"
+      class="form-control"
+      [class.is]
+      formControlName="descripcion"
+    />
+    <div
+      *ngIf="
+        materialForm.get('descripcion')?.errors &&
+        materialForm.get('descripcion')?.touched
+      "
+    >
+      <p
+        class="text-danger"
+        *ngIf="materialForm.get('descripcion')?.hasError('required')"
+      >
+        Campo requerido.
+      </p>
+      <p
+        class="text-danger"
+        *ngIf="materialForm.get('descripcion')?.hasError('maxlength')"
+      >
+        Máxima longitud 50 caracteres.
+      </p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button
+      type="button"
+      class="btn btn-primary"
+      [disabled]="materialForm.invalid"
+      (click)="guardar($event)"
+    >
+      Guardar
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      [routerLink]="['/materiales']"
+    >
+      Volver
+    </button>
+  </div>
+</form>

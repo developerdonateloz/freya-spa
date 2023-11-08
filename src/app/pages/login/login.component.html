@@ -1,0 +1,67 @@
+<h4>Login</h4>
+<form [formGroup]="loginForm" class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="txt-username">Username:</label>
+    <input
+      id="txt-username"
+      type="text"
+      class="form-control"
+      formControlName="username"
+    />
+    <div
+      *ngIf="
+        loginForm.get('username')?.errors && loginForm.get('username')?.touched
+      "
+    >
+      <p
+        class="text-danger"
+        *ngIf="loginForm.get('username')?.hasError('required')"
+      >
+        Campo requerido.
+      </p>
+      <p
+        class="text-danger"
+        *ngIf="loginForm.get('username')?.hasError('maxlength')"
+      >
+        Máxima longitud 20 caracteres.
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="txt-password">Contraseña:</label>
+    <input
+      id="txt-password"
+      type="password"
+      class="form-control"
+      formControlName="password"
+    />
+    <div
+      *ngIf="
+        loginForm.get('password')?.errors && loginForm.get('password')?.touched
+      "
+    >
+      <p
+        class="text-danger"
+        *ngIf="loginForm.get('password')?.hasError('required')"
+      >
+        Campo requerido.
+      </p>
+      <p
+        class="text-danger"
+        *ngIf="loginForm.get('password')?.hasError('maxlength')"
+      >
+        Máxima longitud 20 caracteres.
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <button
+      type="button"
+      [disabled]="loginForm.invalid"
+      class="btn btn-primary"
+      (click)="login($event)"
+    >
+      Login
+    </button>
+  </div>
+</form>

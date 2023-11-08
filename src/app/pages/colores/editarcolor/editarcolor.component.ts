@@ -39,7 +39,6 @@ export class EditarcolorComponent implements OnInit {
   }
   loadColor(): void {
     this.ColorsService.getColor(this.id).subscribe((res) => {
-      console.log(res);
       this.ColorEdit.nombre = res.nombre;
 
       this.colorForm.patchValue({

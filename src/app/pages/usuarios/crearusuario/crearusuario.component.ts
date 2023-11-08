@@ -56,11 +56,10 @@ export class CrearusuarioComponent implements OnInit {
 
     this.usuariosService.createUsuario(usuarioNuevo).subscribe(
       (res) => {
-        console.log(usuarioNuevo);
         this.router.navigate(['/usuarios']);
       },
       (error) => {
-        console.log('erroressss');
+        console.log(error);
       }
     );
   }

@@ -39,7 +39,6 @@ export class EditargeneroComponent implements OnInit {
   }
   loadGenero(): void {
     this.generosService.getGenero(this.id).subscribe((res) => {
-      console.log(res);
       this.generoEdit.descripcion = res.descripcion;
 
       this.generoForm.patchValue({

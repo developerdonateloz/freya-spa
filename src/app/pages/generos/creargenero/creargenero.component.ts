@@ -38,7 +38,6 @@ export class CreargeneroComponent implements OnInit {
 
     this.generosService.createGenero(generoNuevo).subscribe(
       (res) => {
-        console.log(generoNuevo);
         this.router.navigate(['/generos']);
       },
       (error) => {

@@ -26,7 +26,6 @@ export class ListamaterialesComponent implements OnInit {
   eliminar(id: number): void {
     if (confirm('¿Estás seguro de eliminar el material seleccionado?')) {
       this.materialesService.eliminarMaterial(id).subscribe((res) => {
-        console.log(res);
         this.cargarLista();
       });
     }

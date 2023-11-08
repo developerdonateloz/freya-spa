@@ -41,7 +41,6 @@ export class CrearmaterialComponent implements OnInit {
 
     this.materialesService.createMaterial(materialNuevo).subscribe(
       (res) => {
-        console.log(materialNuevo);
         this.router.navigate(['/materiales']);
       },
       (error) => {

@@ -51,7 +51,6 @@ export class EditarusuarioComponent implements OnInit {
   }
   loadUsuario(): void {
     this.usuariosService.getUsuario(this.id).subscribe((res) => {
-      console.log(res);
       this.usuarioEdit.name = res.name;
       this.usuarioEdit.lastname = res.lastname;
       this.usuarioEdit.username = res.username;
@@ -81,7 +80,6 @@ export class EditarusuarioComponent implements OnInit {
     this.usuarioEdit.username = this.usuarioForm.get('username')?.value ?? '';
     this.usuarioEdit.password = this.usuarioForm.get('password')?.value ?? '';
 
-    console.log(this.usuarioEdit);
     this.usuariosService
       .actualizarUsuario(this.id, this.usuarioEdit)
       .subscribe((res) => {

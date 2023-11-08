@@ -23,6 +23,8 @@ import { EditarmediopagoComponent } from './pages/mediospago/editarmediopago/edi
 import { ListamaterialesComponent } from './pages/materiales/listamateriales/listamateriales.component';
 import { EditarmaterialComponent } from './pages/materiales/editarmaterial/editarmaterial.component';
 import { CrearmaterialComponent } from './pages/materiales/crearmaterial/crearmaterial.component';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,36 +33,103 @@ const routes: Routes = [
   { path: 'productos/create', component: CrearproductoComponent },
 
   { path: 'usuarios', title: 'Usuarios', component: ListausuariosComponent },
-  { path: 'usuarios/edit/:id', component: EditarusuarioComponent },
+  {
+    path: 'usuarios/edit/:id',
+    component: EditarusuarioComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'usuarios/create', component: CrearusuarioComponent },
 
-  { path: 'generos', title: 'Generos', component: ListagenerosComponent },
-  { path: 'generos/edit/:id', component: EditargeneroComponent },
-  { path: 'generos/create', component: CreargeneroComponent },
+  {
+    path: 'generos',
+    title: 'Generos',
+    component: ListagenerosComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'generos/edit/:id',
+    component: EditargeneroComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'generos/create',
+    component: CreargeneroComponent,
+    canActivate: [AuthGuard],
+  },
 
-  { path: 'colores', title: 'Colores', component: ListacoloresComponent },
-  { path: 'colores/edit/:id', component: EditarcolorComponent },
-  { path: 'colores/create', component: CrearcolorComponent },
+  {
+    path: 'colores',
+    title: 'Colores',
+    component: ListacoloresComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'colores/edit/:id',
+    component: EditarcolorComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'colores/create',
+    component: CrearcolorComponent,
+    canActivate: [AuthGuard],
+  },
 
   {
     path: 'materiales',
     title: 'Materiales',
     component: ListamaterialesComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'materiales/edit/:id', component: EditarmaterialComponent },
-  { path: 'materiales/create', component: CrearmaterialComponent },
+  {
+    path: 'materiales/edit/:id',
+    component: EditarmaterialComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'materiales/create',
+    component: CrearmaterialComponent,
+    canActivate: [AuthGuard],
+  },
 
   {
     path: 'mediospago',
     title: 'Medios de Pago',
     component: ListamediospagoComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'mediospago/edit/:id', component: EditarmediopagoComponent },
-  { path: 'mediospago/create', component: CrearmediopagoComponent },
+  {
+    path: 'mediospago/edit/:id',
+    component: EditarmediopagoComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'mediospago/create',
+    component: CrearmediopagoComponent,
+    canActivate: [AuthGuard],
+  },
 
-  { path: 'tamanios', title: 'Tamaños', component: ListatamaniosComponent },
-  { path: 'tamanios/edit/:id', component: EditartamanioComponent },
-  { path: 'tamanios/create', component: CreartamanioComponent },
+  {
+    path: 'tamanios',
+    title: 'Tamaños',
+    component: ListatamaniosComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'tamanios/edit/:id',
+    component: EditartamanioComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'tamanios/create',
+    component: CreartamanioComponent,
+    canActivate: [AuthGuard],
+  },
+
+  {
+    path: 'login',
+    title: 'Login',
+    component: LoginComponent,
+  },
 
   { path: '**', component: NotfoundComponent },
 ];
