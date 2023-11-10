@@ -38,7 +38,6 @@ export class CrearcolorComponent implements OnInit {
 
     this.coloresService.createColor(ColorNuevo).subscribe(
       (res) => {
-        console.log(ColorNuevo);
         this.router.navigate(['/colores']);
       },
       (error) => {

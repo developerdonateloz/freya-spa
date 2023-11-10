@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Logindto } from 'src/app/model/login.dto';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
@@ -12,9 +12,14 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class LoginComponent implements OnInit {
   keyLogin: string = 'login';
+  urlRedirect = '';
   loginValido: boolean = false;
   loginForm!: FormGroup;
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.buildForm();
@@ -23,11 +28,11 @@ export class LoginComponent implements OnInit {
     this.loginForm = new FormGroup({
       username: new FormControl('', [
         Validators.required,
-        Validators.maxLength(20),
+        Validators.maxLength(30),
       ]),
       password: new FormControl('', [
         Validators.required,
-        Validators.maxLength(20),
+        Validators.maxLength(30),
       ]),
     });
   }
@@ -47,7 +52,10 @@ export class LoginComponent implements OnInit {
     this.loginValido = this.authService.loginValido(usuarioNuevo);
     if (this.loginValido) {
       localStorage.setItem(this.keyLogin, usuarioNuevo.username);
-      this.router.navigate(['']);
+
+      const urlRedirect = this.route.snapshot.queryParams['returnUrl'] || '';
+
+      this.router.navigate([urlRedirect]);
     }
   }
 }

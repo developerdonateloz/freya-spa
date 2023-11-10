@@ -22,7 +22,6 @@ export class ListausuariosComponent implements OnInit {
   eliminar(id: number): void {
     if (confirm('¿Estás seguro de eliminar el usuario seleccionado?')) {
       this.usuariosService.eliminarUsuario(id).subscribe((res) => {
-        console.log(res);
         this.cargarLista();
       });
     }

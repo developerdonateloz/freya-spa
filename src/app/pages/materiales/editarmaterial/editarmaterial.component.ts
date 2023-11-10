@@ -39,7 +39,7 @@ export class EditarmaterialComponent implements OnInit {
   }
   loadMaterial(): void {
     this.materialesService.getMaterial(this.id).subscribe((res) => {
-      console.log(res);
+      
       this.materialEdit.descripcion = res.descripcion;
 
       this.materialForm.patchValue({
