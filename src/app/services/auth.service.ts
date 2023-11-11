@@ -6,12 +6,13 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
+  keyLogin: string = 'login';
   constructor() {}
   loginValido(logindata: Logindto): boolean {
     return true;
   }
-  isLoggedIn(username: string): boolean {
-    var loginName = localStorage.getItem(username) || '';
+  isLoggedIn(): boolean {
+    var loginName = localStorage.getItem(this.keyLogin) || '';
 
     return loginName != '';
   }

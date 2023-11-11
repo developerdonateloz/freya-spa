@@ -27,7 +27,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'productos', title: 'Productos', component: ListaproductosComponent },
   { path: 'productos/edit/:id', component: EditarproductoComponent },
   { path: 'productos/create', component: CrearproductoComponent },

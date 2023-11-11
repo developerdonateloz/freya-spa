@@ -39,13 +39,9 @@ export class CrearmaterialComponent implements OnInit {
       descripcion: this.materialForm.get('descripcion')?.value ?? '',
     };
 
-    this.materialesService.createMaterial(materialNuevo).subscribe(
-      (res) => {
-        this.router.navigate(['/materiales']);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.materialesService.createMaterial(materialNuevo).subscribe({
+      next: (res) => this.router.navigate(['/materiales']),
+      error: (err) => console.log(err),
+    });
   }
 }

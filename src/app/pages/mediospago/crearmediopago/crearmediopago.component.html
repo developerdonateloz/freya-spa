@@ -1,1 +1,105 @@
-<p>crearmediopago works!</p>
+<h4>Nuevo Medio de Pago</h4>
+<form [formGroup]="mediopagoForm" class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="txt-name">Nombre:</label>
+    <input
+      id="txt-nombre"
+      type="text"
+      class="form-control"
+      formControlName="nombre"
+    />
+    <div
+      *ngIf="
+        mediopagoForm.get('nombre')?.errors &&
+        mediopagoForm.get('nombre')?.touched
+      "
+    >
+      <p
+        class="text-danger"
+        *ngIf="mediopagoForm.get('nombre')?.hasError('required')"
+      >
+        Campo requerido.
+      </p>
+      <p
+        class="text-danger"
+        *ngIf="mediopagoForm.get('nombre')?.hasError('maxlength')"
+      >
+        Máxima longitud 50 caracteres.
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="txt-name">Descripción:</label>
+    <input
+      id="txt-descripcion"
+      type="text"
+      class="form-control"
+      formControlName="descripcion"
+    />
+    <div
+      *ngIf="
+        mediopagoForm.get('descripcion')?.errors &&
+        mediopagoForm.get('descripcion')?.touched
+      "
+    >
+      <p
+        class="text-danger"
+        *ngIf="mediopagoForm.get('descripcion')?.hasError('required')"
+      >
+        Campo requerido.
+      </p>
+      <p
+        class="text-danger"
+        *ngIf="mediopagoForm.get('descripcion')?.hasError('maxlength')"
+      >
+        Máxima longitud 50 caracteres.
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="txt-name">Estado:</label>
+    <input
+      id="txt-estado"
+      type="text"
+      class="form-control"
+      formControlName="estado"
+    />
+    <div
+      *ngIf="
+        mediopagoForm.get('estado')?.errors &&
+        mediopagoForm.get('estado')?.touched
+      "
+    >
+      <p
+        class="text-danger"
+        *ngIf="mediopagoForm.get('estado')?.hasError('required')"
+      >
+        Campo requerido.
+      </p>
+      <p
+        class="text-danger"
+        *ngIf="mediopagoForm.get('estado')?.hasError('maxlength')"
+      >
+        Máxima longitud 20 caracteres.
+      </p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button
+      type="button"
+      [disabled]="mediopagoForm.invalid"
+      class="btn btn-primary"
+      (click)="guardar($event)"
+    >
+      Guardar
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      [routerLink]="['/mediospago']"
+    >
+      Volver
+    </button>
+  </div>
+</form>

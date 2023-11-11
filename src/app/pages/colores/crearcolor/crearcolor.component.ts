@@ -36,13 +36,9 @@ export class CrearcolorComponent implements OnInit {
       nombre: this.colorForm.get('nombre')?.value ?? '',
     };
 
-    this.coloresService.createColor(ColorNuevo).subscribe(
-      (res) => {
-        this.router.navigate(['/colores']);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.coloresService.createColor(ColorNuevo).subscribe({
+      next: (res) => this.router.navigate(['/colores']),
+      error: (err) => console.log(err),
+    });
   }
 }

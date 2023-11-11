@@ -296,7 +296,7 @@
 </style>
 
 <!-- Toolbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="logueado">
   <a class="navbar-brand" [routerLink]="['/']">Freya</a>
   <button
     class="navbar-toggler"
