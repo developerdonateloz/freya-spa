@@ -29,6 +29,9 @@ import { ListatamaniosComponent } from './pages/tamanios/listatamanios/listatama
 import { CreartamanioComponent } from './pages/tamanios/creartamanio/creartamanio.component';
 import { EditartamanioComponent } from './pages/tamanios/editartamanio/editartamanio.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ListaventasComponent } from './pages/ventas/listaventas/listaventas.component';
+import { CrearventaComponent } from './pages/ventas/crearventa/crearventa.component';
+import { EditarventaComponent } from './pages/ventas/editarventa/editarventa.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +60,9 @@ import { LoginComponent } from './pages/login/login.component';
     CreartamanioComponent,
     EditartamanioComponent,
     LoginComponent,
+    ListaventasComponent,
+    CrearventaComponent,
+    EditarventaComponent,
   ],
   imports: [
     BrowserModule,

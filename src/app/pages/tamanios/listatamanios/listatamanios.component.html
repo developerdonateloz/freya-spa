@@ -1,1 +1,30 @@
-<p>listatamanios works!</p>
+<h4>LISTA DE TAMAÑOS</h4>
+<div class="row text-right">
+  <div class="text-right">
+    <a [routerLink]="['create']" class="">Nuevo Tamaño</a>
+  </div>
+</div>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Descripción</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of listTamanios">
+      <td>{{ item.descripcion }}</td>
+      <td>
+        <button class="btn btn-warning" [routerLink]="['edit', item.id]">
+          Editar
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="eliminar(item.id)">
+          Eliminar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

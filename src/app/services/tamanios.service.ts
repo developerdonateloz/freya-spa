@@ -13,7 +13,7 @@ import {
 export class TamaniosService {
   private urlBase: string;
   constructor(private http: HttpClient) {
-    this.urlBase = `http://localhost:3000/ramanios/`;
+    this.urlBase = `http://localhost:3000/tamanios/`;
   }
 
   createTamanio(TamanioNuevo: TamanioNuevodto): Observable<TamanioNuevodto> {

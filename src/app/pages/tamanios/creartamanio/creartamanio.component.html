@@ -1,1 +1,51 @@
-<p>creartamanio works!</p>
+<h4>Nuevo Género</h4>
+<form [formGroup]="tamanioForm" class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="txt-descripcion"
+      >Descripción:</label
+    >
+    <input
+      id="txt-descripcion"
+      type="text"
+      class="form-control"
+      formControlName="descripcion"
+    />
+    <div
+      *ngIf="
+        tamanioForm.get('descripcion')?.errors &&
+        tamanioForm.get('descripcion')?.touched
+      "
+    >
+      <p
+        class="text-danger"
+        *ngIf="tamanioForm.get('descripcion')?.hasError('required')"
+      >
+        Campo requerido.
+      </p>
+      <p
+        class="text-danger"
+        *ngIf="tamanioForm.get('descripcion')?.hasError('maxlength')"
+      >
+        Máxima longitud 50 caracteres.
+      </p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button
+      type="button"
+      [disabled]="tamanioForm.invalid"
+      class="btn btn-primary"
+      (click)="guardar($event)"
+    >
+      Guardar
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      [routerLink]="['/tamanios']"
+    >
+      Volver
+    </button>
+  </div>
+</form>
