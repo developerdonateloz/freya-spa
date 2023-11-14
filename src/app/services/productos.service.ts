@@ -9,16 +9,13 @@ import { ProductoNuevodto, Productodto } from '../model/productodto';
 export class ProductosService {
   private urlBase: string;
   constructor(private http: HttpClient) {
-    this.urlBase = `http://localhost:3000/`;
+    this.urlBase = `http://localhost:3000/productos`;
   }
 
   getProductos(): Observable<Productodto[]> {
-    return this.http.get<Productodto[]>(`${this.urlBase}/api/v1/productos`);
+    return this.http.get<Productodto[]>(`${this.urlBase}`);
   }
   createProducto(productoNuevo: ProductoNuevodto): Observable<Productodto> {
-    return this.http.post<Productodto>(
-      `${this.urlBase}/api/v1/productos/crear`,
-      productoNuevo
-    );
+    return this.http.post<Productodto>(`${this.urlBase}/crear`, productoNuevo);
   }
 }

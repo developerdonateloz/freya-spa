@@ -1,1 +1,99 @@
-<p>crearventa works!</p>
+<h4>Nuevo Medio de Pago</h4>
+<form [formGroup]="ventaForm" class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="txt-name">Nombre:</label>
+    <input
+      id="txt-nombre"
+      type="text"
+      class="form-control"
+      formControlName="nombre"
+    />
+    <div
+      *ngIf="
+        ventaForm.get('nombre')?.errors && ventaForm.get('nombre')?.touched
+      "
+    >
+      <p
+        class="text-danger"
+        *ngIf="ventaForm.get('nombre')?.hasError('required')"
+      >
+        Campo requerido.
+      </p>
+      <p
+        class="text-danger"
+        *ngIf="ventaForm.get('nombre')?.hasError('maxlength')"
+      >
+        Máxima longitud 50 caracteres.
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="txt-name">Descripción:</label>
+    <input
+      id="txt-descripcion"
+      type="text"
+      class="form-control"
+      formControlName="descripcion"
+    />
+    <div
+      *ngIf="
+        ventaForm.get('descripcion')?.errors &&
+        ventaForm.get('descripcion')?.touched
+      "
+    >
+      <p
+        class="text-danger"
+        *ngIf="ventaForm.get('descripcion')?.hasError('required')"
+      >
+        Campo requerido.
+      </p>
+      <p
+        class="text-danger"
+        *ngIf="ventaForm.get('descripcion')?.hasError('maxlength')"
+      >
+        Máxima longitud 50 caracteres.
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="txt-name">Estado:</label>
+    <input
+      id="txt-estado"
+      type="text"
+      class="form-control"
+      formControlName="estado"
+    />
+    <div
+      *ngIf="
+        ventaForm.get('estado')?.errors && ventaForm.get('estado')?.touched
+      "
+    >
+      <p
+        class="text-danger"
+        *ngIf="ventaForm.get('estado')?.hasError('required')"
+      >
+        Campo requerido.
+      </p>
+      <p
+        class="text-danger"
+        *ngIf="ventaForm.get('estado')?.hasError('maxlength')"
+      >
+        Máxima longitud 20 caracteres.
+      </p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button
+      type="button"
+      [disabled]="ventaForm.invalid"
+      class="btn btn-primary"
+      (click)="guardar($event)"
+    >
+      Guardar
+    </button>
+    <button type="button" class="btn btn-secondary" [routerLink]="['/ventas']">
+      Volver
+    </button>
+  </div>
+</form>

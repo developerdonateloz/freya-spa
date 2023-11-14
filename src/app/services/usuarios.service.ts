@@ -13,12 +13,12 @@ import { Observable } from 'rxjs';
 export class UsuariosService {
   private urlBase: string;
   constructor(private http: HttpClient) {
-    this.urlBase = `http://localhost:3000/`;
+    this.urlBase = `http://localhost:3000/usuarios`;
   }
 
   createUsuario(usuarioNuevo: UsuarioNuevodto): Observable<UsuarioNuevodto> {
     return this.http.post<UsuarioNuevodto>(
-      `${this.urlBase}usuarios/crear`,
+      `${this.urlBase}/crear`,
       usuarioNuevo
     );
   }
@@ -27,17 +27,17 @@ export class UsuariosService {
     usuarioActualizado: UsuarioActualizadodto
   ): Observable<Usuariodto> {
     return this.http.put<Usuariodto>(
-      `${this.urlBase}usuarios/actualizar/${id}`,
+      `${this.urlBase}/${id}`,
       usuarioActualizado
     );
   }
   getUsuario(id: number): Observable<Usuariodto> {
-    return this.http.get<Usuariodto>(`${this.urlBase}usuarios/${id}`);
+    return this.http.get<Usuariodto>(`${this.urlBase}/${id}`);
   }
   getUsuarios(): Observable<Usuariodto[]> {
-    return this.http.get<Usuariodto[]>(`${this.urlBase}usuarios`);
+    return this.http.get<Usuariodto[]>(`${this.urlBase}`);
   }
   eliminarUsuario(id: number): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.urlBase}usuarios/${id}`);
+    return this.http.delete<boolean>(`${this.urlBase}/${id}`);
   }
 }

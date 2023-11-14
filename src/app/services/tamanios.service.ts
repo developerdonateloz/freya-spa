@@ -13,12 +13,12 @@ import {
 export class TamaniosService {
   private urlBase: string;
   constructor(private http: HttpClient) {
-    this.urlBase = `http://localhost:3000/tamanios/`;
+    this.urlBase = `http://localhost:3000/tamanios`;
   }
 
   createTamanio(TamanioNuevo: TamanioNuevodto): Observable<TamanioNuevodto> {
     return this.http.post<TamanioNuevodto>(
-      `${this.urlBase}crear`,
+      `${this.urlBase}/crear`,
       TamanioNuevo
     );
   }
@@ -27,17 +27,17 @@ export class TamaniosService {
     usuarioActualizado: TamanioActualizadodto
   ): Observable<Tamaniodto> {
     return this.http.put<Tamaniodto>(
-      `${this.urlBase}${id}`,
+      `${this.urlBase}/${id}`,
       usuarioActualizado
     );
   }
   getTamanio(id: number): Observable<Tamaniodto> {
-    return this.http.get<Tamaniodto>(`${this.urlBase}${id}`);
+    return this.http.get<Tamaniodto>(`${this.urlBase}/${id}`);
   }
   getTamanios(): Observable<Tamaniodto[]> {
     return this.http.get<Tamaniodto[]>(`${this.urlBase}`);
   }
   eliminarTamanio(id: number): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.urlBase}${id}`);
+    return this.http.delete<boolean>(`${this.urlBase}/${id}`);
   }
 }

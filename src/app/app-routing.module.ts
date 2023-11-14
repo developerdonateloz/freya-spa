@@ -25,9 +25,21 @@ import { EditarmaterialComponent } from './pages/materiales/editarmaterial/edita
 import { CrearmaterialComponent } from './pages/materiales/crearmaterial/crearmaterial.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
+import { ListaordenescompraComponent } from './pages/ordenescompra/listaordenescompra/listaordenescompra.component';
+import { EditarordencompraComponent } from './pages/ordenescompra/editarordencompra/editarordencompra.component';
+import { CrearordencompraComponent } from './pages/ordenescompra/crearordencompra/crearordencompra.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+
+  {
+    path: 'ordenescompra',
+    title: 'Productos',
+    component: ListaordenescompraComponent,
+  },
+  { path: 'ordenescompra/edit/:id', component: EditarordencompraComponent },
+  { path: 'ordenescompra/create', component: CrearordencompraComponent },
+
   { path: 'productos', title: 'Productos', component: ListaproductosComponent },
   { path: 'productos/edit/:id', component: EditarproductoComponent },
   { path: 'productos/create', component: CrearproductoComponent },

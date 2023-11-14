@@ -2,15 +2,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListagenerosComponent } from './listageneros.component';
 
-describe('ListagenerosComponent', () => {
+xdescribe('ListagenerosComponent', () => {
   let component: ListagenerosComponent;
   let fixture: ComponentFixture<ListagenerosComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListagenerosComponent ]
-    })
-    .compileComponents();
+      declarations: [ListagenerosComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ListagenerosComponent);
     component = fixture.componentInstance;

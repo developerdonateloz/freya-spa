@@ -32,6 +32,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { ListaventasComponent } from './pages/ventas/listaventas/listaventas.component';
 import { CrearventaComponent } from './pages/ventas/crearventa/crearventa.component';
 import { EditarventaComponent } from './pages/ventas/editarventa/editarventa.component';
+import { ListaordenescompraComponent } from './pages/ordenescompra/listaordenescompra/listaordenescompra.component';
+import { CrearordencompraComponent } from './pages/ordenescompra/crearordencompra/crearordencompra.component';
+import { EditarordencompraComponent } from './pages/ordenescompra/editarordencompra/editarordencompra.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +66,9 @@ import { EditarventaComponent } from './pages/ventas/editarventa/editarventa.com
     ListaventasComponent,
     CrearventaComponent,
     EditarventaComponent,
+    ListaordenescompraComponent,
+    CrearordencompraComponent,
+    EditarordencompraComponent,
   ],
   imports: [
     BrowserModule,

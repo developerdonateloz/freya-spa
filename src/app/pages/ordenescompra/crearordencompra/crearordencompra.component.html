@@ -1,0 +1,113 @@
+<div class="card">
+  <div class="card-header"><h4>Nueva Orden de Compra</h4></div>
+  <div class="card-body">
+    <form [formGroup]="ordencompraForm" class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="txt-fecha">Nombre:</label>
+        <input
+          id="txt-fecha"
+          type="text"
+          class="form-control"
+          formControlName="fecha"
+        />
+        <div
+          *ngIf="
+            ordencompraForm.get('fecha')?.errors &&
+            ordencompraForm.get('fecha')?.touched
+          "
+        >
+          <p
+            class="text-danger"
+            *ngIf="ordencompraForm.get('fecha')?.hasError('required')"
+          >
+            Campo requerido.
+          </p>
+          <p
+            class="text-danger"
+            *ngIf="ordencompraForm.get('fecha')?.hasError('maxlength')"
+          >
+            Máxima longitud 50 caracteres.
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="txt-name">Proveedor:</label>
+        <select
+          id="sel-proveedor"
+          formControlName="proveedor"
+          class="form-control"
+        >
+          <option value="" selected disabled>Seleccione</option>
+          <option *ngFor="let pro of listProveedores" [value]="pro.id">
+            {{ pro.nombrecompleto }}
+          </option>
+        </select>
+        <div
+          *ngIf="
+            ordencompraForm.get('proveedor')?.errors &&
+            ordencompraForm.get('proveedor')?.touched
+          "
+        >
+          <p
+            class="text-danger"
+            *ngIf="ordencompraForm.get('proveedor')?.hasError('required')"
+          >
+            Campo requerido.
+          </p>
+          <p
+            class="text-danger"
+            *ngIf="ordencompraForm.get('proveedor')?.hasError('maxlength')"
+          >
+            Máxima longitud 50 caracteres.
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="txt-name">Estado:</label>
+        <input
+          id="txt-estado"
+          type="text"
+          class="form-control"
+          formControlName="estado"
+        />
+        <div
+          *ngIf="
+            ordencompraForm.get('estado')?.errors &&
+            ordencompraForm.get('estado')?.touched
+          "
+        >
+          <p
+            class="text-danger"
+            *ngIf="ordencompraForm.get('estado')?.hasError('required')"
+          >
+            Campo requerido.
+          </p>
+          <p
+            class="text-danger"
+            *ngIf="ordencompraForm.get('estado')?.hasError('maxlength')"
+          >
+            Máxima longitud 20 caracteres.
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button
+          type="button"
+          [disabled]="ordencompraForm.invalid"
+          class="btn btn-primary"
+          (click)="guardar($event)"
+        >
+          Guardar
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          [routerLink]="['/ordenescompra']"
+        >
+          Volver
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -13,31 +13,28 @@ import { Observable } from 'rxjs';
 export class GenerosService {
   private urlBase: string;
   constructor(private http: HttpClient) {
-    this.urlBase = `http://localhost:3000/`;
+    this.urlBase = `http://localhost:3000/generos`;
   }
 
   createGenero(generoNuevo: GeneroNuevodto): Observable<GeneroNuevodto> {
-    return this.http.post<GeneroNuevodto>(
-      `${this.urlBase}generos/crear`,
-      generoNuevo
-    );
+    return this.http.post<GeneroNuevodto>(`${this.urlBase}/crear`, generoNuevo);
   }
   actualizarGenero(
     id: number,
     usuarioActualizado: GeneroActualizadodto
   ): Observable<Generodto> {
     return this.http.put<Generodto>(
-      `${this.urlBase}generos/actualizar/${id}`,
+      `${this.urlBase}/actualizar/${id}`,
       usuarioActualizado
     );
   }
   getGenero(id: number): Observable<Generodto> {
-    return this.http.get<Generodto>(`${this.urlBase}generos/${id}`);
+    return this.http.get<Generodto>(`${this.urlBase}/${id}`);
   }
   getGeneros(): Observable<Generodto[]> {
-    return this.http.get<Generodto[]>(`${this.urlBase}generos`);
+    return this.http.get<Generodto[]>(`${this.urlBase}`);
   }
   eliminarGenero(id: number): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.urlBase}generos/${id}`);
+    return this.http.delete<boolean>(`${this.urlBase}/${id}`);
   }
 }
